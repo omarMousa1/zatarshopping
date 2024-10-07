@@ -3,12 +3,12 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyARIE2jPk4JglRzDc7_ALPHn3gBTIF6yFo",
-  authDomain: "zatarshopping-a5d19.firebaseapp.com",
-  projectId: "zatarshopping-a5d19",
-  storageBucket: "zatarshopping-a5d19.appspot.com",
-  messagingSenderId: "752360778505",
-  appId: "1:752360778505:web:8380a1fffe536cf20381d8",
+  apiKey: "AIzaSyDeNaehQVGpb4UHP_7HyvxZ2Y3sJURv_Sg",
+  authDomain: "zatar-9dbcc.firebaseapp.com",
+  projectId: "zatar-9dbcc",
+  storageBucket: "zatar-9dbcc.appspot.com",
+  messagingSenderId: "254905955618",
+  appId: "1:254905955618:web:cc71765f43c37322a6217b",
 };
 
 const app = initializeApp(firebaseConfig);
