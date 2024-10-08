@@ -42,7 +42,7 @@ export const useRegister = () => {
 
       await setDoc(doc(db, "users", user.uid), userData);
       console.log("User registered successfully:", userData);
-      navigate(""); //Dashboard
+      navigate("/dashboard");
     } catch (err: any) {
       setError(err.message);
       console.log("Error registering user:", err.message);

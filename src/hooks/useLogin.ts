@@ -29,7 +29,7 @@ export const Login = async () => {
         localStorage.setItem("token", customToken || "");
 
         console.log("User data:", userDoc.data());
-        navigate(""); // dashboard
+        navigate("/dashboard");
       } else {
         setError("User data not found in Firestore");
       }
