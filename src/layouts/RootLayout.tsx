@@ -15,7 +15,7 @@ export const RootLayout: React.FC<RootLayoutProps> = ({ user }) => {
     }
 
   return (
-    <body>
+    <div>
         <header>
             <nav>
                 <h1>ola</h1>
@@ -45,6 +45,6 @@ export const RootLayout: React.FC<RootLayoutProps> = ({ user }) => {
         <main>
             <Outlet />
         </main>
-    </body>
+    </div>
   )
 }

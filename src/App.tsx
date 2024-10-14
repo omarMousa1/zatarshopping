@@ -26,7 +26,7 @@ function App() {
         <Route index element={<Home user={user} />} />
         <Route path="/register" element={user ? <Navigate to="/dashboard" /> : <Register />} />
         <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
-        <Route path="/dashboard" element={user ? <Dashboard /> : <Home />} />
+        <Route path="/dashboard" element={user ? <Dashboard /> : <Home user={user} />} />
         </Route>
       </Routes>
     </Router>
