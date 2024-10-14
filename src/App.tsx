@@ -5,6 +5,7 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Home } from "./pages/Home"
 import { Dashboard } from "./pages/Dashboard";
+import { RootLayout } from "./layouts/RootLayout";
 
 function App() {
 
@@ -21,10 +22,12 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={user ? <Dashboard /> : <Home />} />
+        <Route path="/" element={<RootLayout user={user} />}>
+        <Route index element={<Home user={user} />} />
         <Route path="/register" element={user ? <Navigate to="/dashboard" /> : <Register />} />
         <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
         <Route path="/dashboard" element={user ? <Dashboard /> : <Home />} />
+        </Route>
       </Routes>
     </Router>
   );
