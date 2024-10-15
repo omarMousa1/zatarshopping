@@ -42,7 +42,7 @@ export const RootLayout: React.FC<RootLayoutProps> = ({ user }) => {
                 </div>
             </nav>
         </header>
-        <main>
+        <main className='flex justify-center'>
             <Outlet />
         </main>
     </div>
