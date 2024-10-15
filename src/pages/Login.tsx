@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLogin } from '../hooks/useLogin';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const Login: React.FC = () => {
 
@@ -12,10 +12,13 @@ export const Login: React.FC = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleLogin} className='flex flex-col justify-center items-center space-y-8 bg-green-100' >
-        <h2 className='text-4xl my-5 font-bold border-b-black border'>Welcome back!</h2>
-        <div className='px-5 space-y-3'>
+    <div className='max-w-5xl flex justify-center items-center'>
+      <form onSubmit={handleLogin} className='flex flex-col justify-center items-center space-y-8 bg-green-100 py-2 px-5'>
+        <div>
+          <h2 className='text-4xl my-5 font-bold'>Welcome back!</h2>
+          <p>Enter your Credentials to access your account</p>
+        </div>
+        <div className='space-y-3 w-full'>
           <div>
             <label className='text-sm font-semibold'>Email address</label>
             <input 
@@ -23,7 +26,7 @@ export const Login: React.FC = () => {
               placeholder='Enter your email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className='w-full h-8 rounded-xl bg-[#D9D9D9]'
+              className='w-full h-8 rounded-lg text-sm px-3 bg-[#D9D9D9]'
               required
             />
           </div>
@@ -34,13 +37,13 @@ export const Login: React.FC = () => {
               placeholder='Enter toy password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className='w-full h-8 rounded-xl bg-[#D9D9D9]'
+              className='w-full h-8 rounded-lg text-sm px-3 bg-[#D9D9D9]'
               required
             />
           </div>
         </div>
-        <div className='w-full px-5'>
-          <button type='submit' disabled={load} className='bg-black text-white w-full'>
+        <div className='w-full'>
+          <button type='submit' disabled={load} className='bg-[#3A5B22] py-1 text-white w-full rounded-lg'>
             {load ? "logging..." : "Login"}
           </button>
           {error && <p className='text-red-600'>{error}</p>}
@@ -51,7 +54,7 @@ export const Login: React.FC = () => {
           <span className='w-full h-[1px] mr-5 bg-black'></span>
         </div>
           <div className='flex justify-center items-center'>
-            <p className='text-xs font-bold'><Link to={"/register"}>Create acccout now! <span className='italic '>Register</span></Link></p>
+            <p className='text-xs font-bold'><Link to={"/register"}>Don't have an account? <span className='italic underline'>Register</span></Link></p>
           </div>
       </form>
 
