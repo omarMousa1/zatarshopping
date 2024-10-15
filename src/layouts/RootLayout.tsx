@@ -16,18 +16,18 @@ export const RootLayout: React.FC<RootLayoutProps> = ({ user }) => {
 
   return (
     <div>
-        <header>
-            <nav>
-                <h1>ola</h1>
+        <header className='bg-[#3A5B22] p-3'>
+            <nav className='flex justify-between'>
+                <h1 className='text-2xl text-white'>Zatar</h1>
                 <div>
                     {user ? (
                         <h3>{user.email}</h3>
                     ) : (
-                        <>
-                            <NavLink to={"/login"}>Login</NavLink>
-                            <NavLink to={"/register"}>Register</NavLink>
-                        </>
-                    )};
+                        <div className='flex gap-x-3'>
+                            <button className='border-2 py-1 px-4 rounded-md text-white'><NavLink to={"/login"}>Login</NavLink></button>
+                            <button className='border-2 py-1 px-4 rounded-md text-white'><NavLink to={"/register"}>Register</NavLink></button>
+                        </div>
+                    )}
 
                     {!user ? (
                         <>
