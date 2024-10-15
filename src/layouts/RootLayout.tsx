@@ -24,8 +24,8 @@ export const RootLayout: React.FC<RootLayoutProps> = ({ user }) => {
                         <h3>{user.email}</h3>
                     ) : (
                         <div className='flex gap-x-3'>
-                            <button className='border-2 py-1 px-4 rounded-md text-white'><NavLink to={"/login"}>Login</NavLink></button>
-                            <button className='border-2 py-1 px-4 rounded-md text-white'><NavLink to={"/register"}>Register</NavLink></button>
+                            <NavLink className='border-2 py-1 px-4 rounded-md text-white' to={"/login"}>Login</NavLink>
+                            <NavLink className='border-2 py-1 px-4 rounded-md text-white' to={"/register"}>Register</NavLink>
                         </div>
                     )}
 
