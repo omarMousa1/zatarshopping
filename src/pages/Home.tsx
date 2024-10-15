@@ -7,7 +7,7 @@ interface RootLayoutProps {
 
 export const Home: React.FC<RootLayoutProps> = ({ user }) => {
   return (
-    <body className='max-w-5xl'>
+    <div className='max-w-5xl'>
       <h1 className="text-4xl font-extrabold text-gray-800 mb-8">
         Welcome to <span className="text-indigo-600">ZatarShopping</span>
       </h1>
@@ -66,6 +66,6 @@ export const Home: React.FC<RootLayoutProps> = ({ user }) => {
         </div>
       </div>
       </div>
-    </body>
+    </div>
   )
 }
