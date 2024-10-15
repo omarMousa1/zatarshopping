@@ -18,14 +18,14 @@ export const RootLayout: React.FC<RootLayoutProps> = ({ user }) => {
     <div>
         <header className='bg-[#3A5B22] p-3'>
             <nav className='flex justify-between'>
-                <h1 className='text-2xl text-white'>Zatar</h1>
+                <NavLink to={"/"} className='text-2xl text-white'>Zatar</NavLink>
                 <div>
                     {user ? (
                         <h3>{user.email}</h3>
                     ) : (
                         <div className='flex gap-x-3'>
-                            <NavLink className='border-2 py-1 px-4 rounded-md text-white' to={"/login"}>Login</NavLink>
-                            <NavLink className='border-2 py-1 px-4 rounded-md text-white' to={"/register"}>Register</NavLink>
+                            <NavLink to={"/login"} className='border-2 py-1 px-4 rounded-md text-white'>Login</NavLink>
+                            <NavLink to={"/register"} className='border-2 py-1 px-4 rounded-md text-white'>Register</NavLink>
                         </div>
                     )}
 
