@@ -1,6 +1,12 @@
 import { getAuth } from "firebase/auth";
-import { collection, getDocs, getDoc, doc, setDoc } from "firebase/firestore";
-import React from "react";
+import {
+  collection,
+  getDocs,
+  getDoc,
+  doc,
+  setDoc,
+  deleteDoc,
+} from "firebase/firestore";
 import { create } from "zustand";
 import { db } from "../firebase/firebaseConfig";
 
@@ -14,6 +20,10 @@ type CartItem = {
 type CartState = {
   cart: CartItem[];
   loadToCart: () => void;
+  addToCart: (item: CartItem) => void;
+  saveCart: () => void;
+  updateCartItemQuantity: (itemId: number, newQuantity: number) => void;
+  clearCart: () => void;
 };
 
 export const useCartStore = create<CartState>((set, get) => ({
@@ -24,7 +34,7 @@ export const useCartStore = create<CartState>((set, get) => ({
     const user = auth.currentUser;
 
     if (user) {
-      const cartRef = collection(db, `user/${user.uid}/cart`);
+      const cartRef = collection(db, `users/${user.uid}/cart`);
       const cartDocs = await getDocs(cartRef);
 
       const cartItems = cartDocs.docs.map((doc) => {
@@ -47,7 +57,7 @@ export const useCartStore = create<CartState>((set, get) => ({
     const user = auth.currentUser;
 
     if (user) {
-      const cartRef = doc(db, `user/${user.uid}/cart`, String(item.id));
+      const cartRef = doc(db, `users/${user.uid}/cart`, String(item.id));
       const cartDocs = await getDoc(cartRef);
 
       if (cartDocs.exists()) {
@@ -69,6 +79,56 @@ export const useCartStore = create<CartState>((set, get) => ({
 
         await setDoc(cartRef, { ...item, quantity: 1 });
       }
+    }
+  },
+
+  saveCart: async () => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (user) {
+      const cartItems = get().cart;
+      for (const item of cartItems) {
+        const cartRef = doc(db, `users/${user.uid}/cart`, String(item.id));
+        await setDoc(cartRef, item, { merge: true });
+      }
+    }
+  },
+
+  updateCartItemQuantity: async (itemId: number, newQuantity: number) => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (user) {
+      const cartRef = doc(db, `users/${user.uid}/cart`, String(itemId));
+
+      if (newQuantity > 0) {
+        await setDoc(cartRef, { quantity: newQuantity }, { merge: true });
+        set((state) => ({
+          cart: state.cart.map((item) =>
+            item.id === itemId ? { ...item, quantity: newQuantity } : item
+          ),
+        }));
+      } else {
+        await deleteDoc(cartRef);
+        set((state) => ({
+          cart: state.cart.filter((item) => item.id === itemId),
+        }));
+      }
+    }
+  },
+
+  clearCart: async () => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (user) {
+      const cartItems = get().cart;
+      for (const item of cartItems) {
+        const cartRef = doc(db, `users/${user.uid}/cart`, String(item.id));
+        await deleteDoc(cartRef);
+      }
+      set({ cart: [] });
     }
   },
 }));
