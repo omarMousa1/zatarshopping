@@ -9,7 +9,7 @@ export const Home: React.FC<RootLayoutProps> = ({ user }) => {
   return (
     <div className='max-w-5xl bg-slate-100 rounded-md p-5'>
       <h1 className="text-4xl font-extrabold text-gray-800 mb-8">
-        Welcome to <span className="text-indigo-600">ZatarShopping</span>
+        Welcome to <span className="text-green-800">ZatarShopping</span>
       </h1>
       <p className="text-xl text-gray-600 mb-8 max-w-lg">
         Your One-Stop Online Shop for Everything! Explore our wide range of
