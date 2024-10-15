@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLogout } from '../hooks/useLogout';
 import { NavLink, Outlet } from 'react-router-dom';
+import nature from '../assets/bgs/bg-home2.jpg'
 
 interface RootLayoutProps {
     user: any;
@@ -42,7 +43,7 @@ export const RootLayout: React.FC<RootLayoutProps> = ({ user }) => {
                 </div>
             </nav>
         </header>
-        <main className='flex justify-center'>
+        <main className='relative flex justify-center h-screen bg-cover bg-center' style={{ backgroundImage: `url(${nature})` }}>
             <Outlet />
         </main>
     </body>
