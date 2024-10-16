@@ -29,7 +29,13 @@ export const Dashboard = () => {
   
   return (
     <div className='w-full bg-slate-100 rounded-md p-5'>
-      <h1>Welcome to your dashboard</h1>
+      <h1 className='text-3xl'>Welcome to your dashboard</h1>
+      <p className='text-gray-600 text-left mt-4'>
+        This is your personal dashboard where you can browse through our exclusive selection of products. 
+        From the latest tech gadgets to everyday essentials, we’ve got you covered. You can explore the full product list, 
+        view detailed information, and add items to your cart for a seamless shopping experience. If you encounter any issues 
+        or need assistance, feel free to reach out to our support team. Start by exploring the products below and happy shopping!
+    </p>
       {loading && <SkeletonCard cards={20} />}
       {error && <div className='text-red-500 text-center'>Error: {error}</div>}
       {!loading && !error && (

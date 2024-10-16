@@ -18,11 +18,11 @@ export const RootLayout: React.FC<RootLayoutProps> = ({ user }) => {
   return (
     <body>
         <header className='bg-[#3A5B22] p-3'>
-            <nav className='flex justify-between'>
+            <nav className='flex justify-between items-center'>
                 <NavLink to={"/"} className='text-2xl text-white'>Zatar</NavLink>
                 <div>
                     {user ? (
-                        <h3>{user.email}</h3>
+                        <h3> Hi, {user.email}</h3>
                     ) : (
                         <div className='flex gap-x-3'>
                             <NavLink to={"/login"} className='border-2 py-1 px-4 rounded-md text-white'>Login</NavLink>
@@ -35,10 +35,10 @@ export const RootLayout: React.FC<RootLayoutProps> = ({ user }) => {
                         
                         </>
                     ) : (
-                        <>
-                            <NavLink to={"/cartpage"}>Cart</NavLink>
-                            <button onClick={handleLogout}>Logout</button>
-                        </>
+                        <div className='flex gap-x-3'>
+                            <NavLink to={"/cartpage"} className='border-2 py-1 px-4 rounded-md text-white'>Cart</NavLink>
+                            <button onClick={handleLogout} className='border-2 py-1 px-4 rounded-md text-white'>Logout</button>
+                        </div>
                     )}
                 </div>
             </nav>
