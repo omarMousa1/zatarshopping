@@ -19,7 +19,7 @@ type CartItem = {
 
 type CartState = {
   cart: CartItem[];
-  loadToCart: () => void;
+  loadCart: () => void;
   addToCart: (item: CartItem) => void;
   saveCart: () => void;
   updateCartItemQuantity: (itemId: number, newQuantity: number) => void;
@@ -29,7 +29,7 @@ type CartState = {
 export const useCartStore = create<CartState>((set, get) => ({
   cart: [],
 
-  loadToCart: async () => {
+  loadCart: async () => {
     const auth = getAuth();
     const user = auth.currentUser;
 

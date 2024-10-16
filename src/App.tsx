@@ -13,11 +13,15 @@ function App() {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
+      console.log("User state changed:", user);
       setUser(user);
     });
 
-    return () => unsubscribe();
-  }, [])
+    return () => {
+      console.log("Cleaning up listener");
+      unsubscribe();
+    }
+  }, [user])
 
   return (
     <Router>

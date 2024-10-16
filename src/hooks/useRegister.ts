@@ -1,3 +1,4 @@
+// src/hooks/useRegister.ts
 import { useState } from "react";
 import { auth, db } from "../firebase/firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -33,10 +34,10 @@ export const useRegister = () => {
       const user = userCredential.user;
 
       const userData = {
-        username,
-        email,
-        phoneNumber,
         uid: user.uid,
+        username: username,
+        email: user.email,
+        phoneNumber: user.phoneNumber,
         createdAt: new Date(),
       };
 
@@ -45,7 +46,7 @@ export const useRegister = () => {
       navigate("/dashboard");
     } catch (err: any) {
       setError(err.message);
-      console.log("Error registering user:", err.message);
+      console.error("Error registering user:", err.message);
     } finally {
       setLoading(false);
     }
