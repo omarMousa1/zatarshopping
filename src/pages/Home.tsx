@@ -5,9 +5,11 @@ interface RootLayoutProps {
   user: any;
 }
 
+// className='relative flex justify-center h-screen bg-cover bg-center' style={{ backgroundImage: `url(${nature})` }}
+
 export const Home: React.FC<RootLayoutProps> = ({ user }) => {
   return (
-    <div className='max-w-5xl bg-slate-100 rounded-md p-5'>
+    <div className='bg-slate-100 rounded-md p-5'>
       <h1 className="text-4xl font-extrabold text-gray-800 mb-8">
         Welcome to <span className="text-green-800">ZatarShopping</span>
       </h1>

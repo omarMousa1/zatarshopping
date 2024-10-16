@@ -7,6 +7,7 @@ import { Home } from "./pages/Home"
 import { Dashboard } from "./pages/Dashboard";
 import { RootLayout } from "./layouts/RootLayout";
 import { SkeletonTheme } from "react-loading-skeleton";
+import { Cart } from "./pages/Cart";
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/register" element={user ? <Navigate to="/dashboard" /> : <Register />} />
           <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
           <Route path="/dashboard" element={user ? <Dashboard /> : <Home user={user} />} />
+          <Route path="/cart" element={user ? <Cart /> : <Home user={user} />} />
           </Route>
         </Routes>
       </Router>

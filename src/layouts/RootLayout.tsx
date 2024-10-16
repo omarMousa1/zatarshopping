@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLogout } from '../hooks/useLogout';
 import { NavLink, Outlet } from 'react-router-dom';
-import nature from '../assets/bgs/bg-home2.jpg'
+// import nature from '../assets/bgs/bg-home2.jpg'
 
 interface RootLayoutProps {
     user: any;
@@ -22,7 +22,7 @@ export const RootLayout: React.FC<RootLayoutProps> = ({ user }) => {
                 <NavLink to={"/"} className='text-2xl text-white'>Zatar</NavLink>
                 <div>
                     {user ? (
-                        <h3> Hi, {user.email}</h3>
+                        <h3 className='text-white'> Hi, {user.email}</h3>
                     ) : (
                         <div className='flex gap-x-3'>
                             <NavLink to={"/login"} className='border-2 py-1 px-4 rounded-md text-white'>Login</NavLink>
@@ -36,14 +36,14 @@ export const RootLayout: React.FC<RootLayoutProps> = ({ user }) => {
                         </>
                     ) : (
                         <div className='flex gap-x-3'>
-                            <NavLink to={"/cartpage"} className='border-2 py-1 px-4 rounded-md text-white'>Cart</NavLink>
+                            <NavLink to={"/cart"} className='border-2 py-1 px-4 rounded-md text-white'>Cart</NavLink>
                             <button onClick={handleLogout} className='border-2 py-1 px-4 rounded-md text-white'>Logout</button>
                         </div>
                     )}
                 </div>
             </nav>
         </header>
-        <main className='relative flex justify-center h-screen bg-cover bg-center' style={{ backgroundImage: `url(${nature})` }}>
+        <main>
             <Outlet />
         </main>
     </body>
