@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { store } from '../hooks/store'
 import { NavLink } from 'react-router-dom';
 import { useCalculateTotal } from '../hooks/useCalculateTotal';

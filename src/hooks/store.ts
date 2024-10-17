@@ -17,7 +17,7 @@ type CartItem = {
   quantity: number;
 };
 
-type CartState = {
+type VariableState = {
   cart: CartItem[];
   loadCart: () => void;
   addToCart: (item: CartItem) => void;
@@ -26,7 +26,7 @@ type CartState = {
   clearCart: () => void;
 };
 
-export const store = create<CartState>((set, get) => ({
+export const store = create<VariableState>((set, get) => ({
   cart: [],
 
   loadCart: async () => {

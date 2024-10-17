@@ -1,7 +1,7 @@
-import { useCartStore } from "./store";
+import { store } from "./store";
 
 export const useCalculateTotal = () => {
-  const cart = useCartStore((state) => state.cart);
+  const cart = store((state) => state.cart);
 
   const calTotal = () => {
     return cart

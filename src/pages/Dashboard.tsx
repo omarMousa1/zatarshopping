@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useFakeData } from '../hooks/useFakeData'
-import { useCartStore } from '../hooks/store';
+import { store } from '../hooks/store';
 import { useAuthRedirect } from '../hooks/useAuthRedirect';
 import { Product } from '../types/product';
 import { SkeletonCard } from '../components/skeletons-loading/Skeletons';
@@ -9,8 +9,8 @@ import { SkeletonCard } from '../components/skeletons-loading/Skeletons';
 export const Dashboard = () => {
   
   const { products, loading, error } = useFakeData();
-  const addToCart = useCartStore((state) => state.addToCart);
-  const loadCart = useCartStore((state) => state.loadCart);
+  const addToCart = store((state) => state.addToCart);
+  const loadCart = store((state) => state.loadCart);
 
   useAuthRedirect();
 
