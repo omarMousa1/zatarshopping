@@ -8,6 +8,8 @@ import { Dashboard } from "./pages/Dashboard";
 import { RootLayout } from "./layouts/RootLayout";
 import { SkeletonTheme } from "react-loading-skeleton";
 import { Cart } from "./pages/Cart";
+import { Address } from "./pages/Address";
+import { Order } from "./pages/Order";
 
 function App() {
 
@@ -35,6 +37,8 @@ function App() {
           <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
           <Route path="/dashboard" element={user ? <Dashboard /> : <Home user={user} />} />
           <Route path="/cart" element={user ? <Cart /> : <Home user={user} />} />
+          <Route path="/address" element={user ? <Address /> : <Home user={user} />} />
+          <Route path="/order" element={user ? <Order /> : <Home user={user} />} />
           </Route>
         </Routes>
       </Router>
