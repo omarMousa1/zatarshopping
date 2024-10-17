@@ -17,13 +17,28 @@ type CartItem = {
   quantity: number;
 };
 
+type AddressInputs = {
+  firstName: string;
+  lastName: string;
+  country: string;
+  city: string;
+  streetAddress: string;
+  area: string;
+  postalCode: string;
+  // payment method
+};
+
 type VariableState = {
   cart: CartItem[];
+  address: null | AddressInputs;
   loadCart: () => void;
   addToCart: (item: CartItem) => void;
   saveCart: () => void;
   updateCartItemQuantity: (itemId: number, newQuantity: number) => void;
   clearCart: () => void;
+
+  saveAddress: (address: AddressInputs) => void;
+  loadAddress: () => void;
 };
 
 export const store = create<VariableState>((set, get) => ({
@@ -129,6 +144,46 @@ export const store = create<VariableState>((set, get) => ({
         await deleteDoc(cartRef);
       }
       set({ cart: [] });
+    }
+  },
+
+  //! Store address
+
+  address: null,
+
+  saveAddress: async (address: AddressInputs) => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (user) {
+      const addressRef = doc(
+        db,
+        `users/${user.uid}/addressess`,
+        "defaultAddress"
+      );
+      await setDoc(addressRef, { ...address, userId: user.uid });
+      set({ address });
+    }
+  },
+
+  loadAddress: async () => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (user) {
+      const addressRef = doc(
+        db,
+        `users/${user.uid}/addresses`,
+        "defaultAddress"
+      );
+      const addressDoc = await getDoc(addressRef);
+
+      if (addressDoc.exists()) {
+        const addressData = addressDoc.data() as AddressInputs;
+        set({ address: addressData });
+      } else {
+        console.log("No address found");
+      }
     }
   },
 }));
