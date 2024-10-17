@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useCartStore } from '../hooks/useCartStore'
+import { useCartStore } from '../hooks/store'
 import { NavLink } from 'react-router-dom';
 import { useCalculateTotal } from '../hooks/useCalculateTotal';
 import { useUpdateQuantity } from '../hooks/useUpdateQuantity';

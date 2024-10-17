@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useFakeData } from '../hooks/useFakeData'
-import { useCartStore } from '../hooks/useCartStore';
+import { useCartStore } from '../hooks/store';
 import { useAuthRedirect } from '../hooks/useAuthRedirect';
 import { Product } from '../types/product';
 import { SkeletonCard } from '../components/skeletons-loading/Skeletons';

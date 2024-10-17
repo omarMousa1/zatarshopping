@@ -1,4 +1,4 @@
-import { useCartStore } from "./useCartStore";
+import { useCartStore } from "./store";
 
 export const useCalculateTotal = () => {
   const cart = useCartStore((state) => state.cart);
