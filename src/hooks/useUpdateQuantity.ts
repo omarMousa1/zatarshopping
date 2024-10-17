@@ -1,10 +1,8 @@
-import { useCartStore } from "./store";
+import { store } from "./store";
 
 export const useUpdateQuantity = () => {
-  const cart = useCartStore((state) => state.cart);
-  const updateCartItemQuantity = useCartStore(
-    (state) => state.updateCartItemQuantity
-  );
+  const cart = store((state) => state.cart);
+  const updateCartItemQuantity = store((state) => state.updateCartItemQuantity);
 
   const increaseQuantity = async (itemId: number) => {
     const item = cart.find((item) => item.id === itemId);

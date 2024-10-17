@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useCartStore } from '../hooks/store'
+import { store } from '../hooks/store'
 import { NavLink } from 'react-router-dom';
 import { useCalculateTotal } from '../hooks/useCalculateTotal';
 import { useUpdateQuantity } from '../hooks/useUpdateQuantity';
@@ -7,8 +7,8 @@ import { useUpdateQuantity } from '../hooks/useUpdateQuantity';
 
 export const Cart = () => {
 
-    const cart = useCartStore((state) => state.cart);
-    const loadCart = useCartStore((state) => state.loadCart);
+    const cart = store((state) => state.cart);
+    const loadCart = store((state) => state.loadCart);
     const { calTotal } = useCalculateTotal();
     const { increaseQuantity, decreaseQuantity } = useUpdateQuantity();
 
