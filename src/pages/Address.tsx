@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useAuthRedirect } from '../hooks/useAuthRedirect';
 import { store } from '../hooks/store';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -120,7 +120,8 @@ export const Address = () => {
           </div>
           {/* payment method */}
           <div className='border border-gray-500 p-2 rounded-lg my-5 text-center'>
-            <NavLink to={'/order'}>Save Address & Order</NavLink>
+            <button type='submit'>Save Address & Order</button>
+            {/* <NavLink to={'/order'} type='submit'>Save Address & Order</NavLink> */}
           </div>
         </form>
       </div>

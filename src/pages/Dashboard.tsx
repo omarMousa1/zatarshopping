@@ -24,6 +24,9 @@ export const Dashboard = () => {
       title: product.title,
       price: product.price,
       quantity: 1,
+      description: product.description,
+      category: product.category,
+      image: product.image,
     });
   };
   

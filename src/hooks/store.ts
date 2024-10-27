@@ -15,6 +15,9 @@ type CartItem = {
   title: string;
   price: number;
   quantity: number;
+  description: string;
+  category: string;
+  image: string;
 };
 
 type AddressInputs = {
@@ -57,7 +60,10 @@ export const store = create<VariableState>((set, get) => ({
 
         return {
           id: doc.data().id,
+          image: data.image,
           title: data.title,
+          category: data.category,
+          description: data.description,
           price: data.price,
           quantity: data.quantity,
         } as CartItem;
