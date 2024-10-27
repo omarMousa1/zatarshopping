@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export const Register: React.FC = () => {
   
-  const { username, setUsername, email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, error, load, register } = useRegister();
+  const { username, setUsername, email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, phoneNumber, setPhoneNumber, error, load, register } = useRegister();
   
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,6 +34,20 @@ export const Register: React.FC = () => {
               placeholder='Enter your email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className='w-full h-8 rounded-lg text-sm px-3 bg-[#D9D9D9]'
+              required
+            />
+          </div>
+          <div>
+            <label>Phone Number</label>
+            <input
+              type='number'
+              placeholder='Enter your phone number'
+              value={phoneNumber || ''}
+              onChange={(e) => {
+                const parsedValue = e.target.value ? Number(e.target.value) : undefined;
+                setPhoneNumber(parsedValue);
+              }}
               className='w-full h-8 rounded-lg text-sm px-3 bg-[#D9D9D9]'
               required
             />
