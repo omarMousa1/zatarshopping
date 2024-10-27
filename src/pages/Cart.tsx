@@ -3,7 +3,6 @@ import { store } from '../hooks/store'
 import { NavLink } from 'react-router-dom';
 import { useCalculateTotal } from '../hooks/useCalculateTotal';
 import { useUpdateQuantity } from '../hooks/useUpdateQuantity';
-import { Product } from '../types/product';
 
 
 export const Cart = () => {
