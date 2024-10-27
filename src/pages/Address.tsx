@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useAuthRedirect } from '../hooks/useAuthRedirect';
 import { store } from '../hooks/store';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 
 
@@ -45,59 +45,86 @@ export const Address = () => {
   };
   
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="firstName"
-        value={addressInput.firstName}
-        onChange={handleInputChange}
-        placeholder="first name"
-      />
-      <input
-        type="text"
-        name="lastName"
-        value={addressInput.lastName}
-        onChange={handleInputChange}
-        placeholder="last Name"
-      />
-      <input
-        type="text"
-        name="country"
-        value={addressInput.country}
-        onChange={handleInputChange}
-        placeholder="country"
-      />
-      <input
-        type="text"
-        name="city"
-        value={addressInput.city}
-        onChange={handleInputChange}
-        placeholder="city"
-      />
-      <input
-        type="text"
-        name="streetAddress"
-        value={addressInput.streetAddress}
-        onChange={handleInputChange}
-        placeholder="street address"
-      />
-      <input
-        type="text"
-        name="area"
-        value={addressInput.area}
-        onChange={handleInputChange}
-        placeholder="area"
-      />
-      <input
-        type="text"
-        name="postalCode"
-        value={addressInput.postalCode}
-        onChange={handleInputChange}
-        placeholder="postalCode"
-      />
-      {/* payment method */}
-      <button type="submit">Save Address</button>
-    </form>
+    <section className='p-4'>
+      <div className='rounded-lg shadow-slate-400 shadow-lg p-2'>
+        <form onSubmit={handleSubmit} className='flex flex-col gap-y-5'>
+          <div>
+            <label className='text-sm font-semibold'>First Name</label>
+            <input
+              type="text"
+              name="firstName"
+              value={addressInput.firstName}
+              onChange={handleInputChange}
+              className='w-full h-8 rounded-lg text-sm px-3 bg-[#D9D9D9]'
+            />
+          </div>
+          <div>
+            <label className='text-sm font-semibold'>Last Name</label>
+            <input
+              type="text"
+              name="lastName"
+              value={addressInput.lastName}
+              onChange={handleInputChange}
+              className='w-full h-8 rounded-lg text-sm px-3 bg-[#D9D9D9]'
+            />
+          </div>
+          <div>
+            <label className='text-sm font-semibold'>Country</label>
+            <input
+              type="text"
+              name="country"
+              value={addressInput.country}
+              onChange={handleInputChange}
+              className='w-full h-8 rounded-lg text-sm px-3 bg-[#D9D9D9]'
+            />
+          </div>
+          <div>
+            <label className='text-sm font-semibold'>City</label>
+            <input
+              type="text"
+              name="city"
+              value={addressInput.city}
+              onChange={handleInputChange}
+              className='w-full h-8 rounded-lg text-sm px-3 bg-[#D9D9D9]'
+            />
+          </div>
+          <div>
+            <label className='text-sm font-semibold'>Street Address</label>
+            <input
+              type="text"
+              name="streetAddress"
+              value={addressInput.streetAddress}
+              onChange={handleInputChange}
+              className='w-full h-8 rounded-lg text-sm px-3 bg-[#D9D9D9]'
+            />
+          </div>
+          <div>
+            <label className='text-sm font-semibold'>Area</label>
+            <input
+              type="text"
+              name="area"
+              value={addressInput.area}
+              onChange={handleInputChange}
+              className='w-full h-8 rounded-lg text-sm px-3 bg-[#D9D9D9]'
+            />
+          </div>
+          <div>
+            <label className='text-sm font-semibold'>Postal Code</label>
+            <input
+              type="text"
+              name="postalCode"
+              value={addressInput.postalCode}
+              onChange={handleInputChange}
+              className='w-full h-8 rounded-lg text-sm px-3 bg-[#D9D9D9]'
+            />
+          </div>
+          {/* payment method */}
+          <div className='border border-gray-500 p-2 rounded-lg my-5 text-center'>
+            <NavLink to={'/order'}>Save Address & Order</NavLink>
+          </div>
+        </form>
+      </div>
+    </section>
   );
 };
 
