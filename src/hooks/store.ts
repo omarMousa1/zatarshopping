@@ -133,7 +133,7 @@ export const store = create<VariableState>((set, get) => ({
       } else {
         await deleteDoc(cartRef);
         set((state) => ({
-          cart: state.cart.filter((item) => item.id === itemId),
+          cart: state.cart.filter((item) => item.id !== itemId),
         }));
       }
     }

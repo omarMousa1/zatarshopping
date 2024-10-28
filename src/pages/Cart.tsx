@@ -22,22 +22,22 @@ export const Cart = () => {
         <h1 className='text-3xl font-semibold mb-6 text-center'>Shopping cart</h1>
         <div className='flex flex-col justify-center items-center rounded-lg shadow-2xl shadow-black m-4 p-5'>
             <div className='space-y-4 w-full'>
-                <div className='grid grid-cols-3 place-items-center mb-12'>
-                    <p className='font-bold text-2xl italic'>Product</p>                 
+                {/* <div className='grid grid-cols-3 place-items-center mb-12'>
+                    <p className='font-bold text-2xl italic'>Product</p>
                     <p className='font-bold text-2xl italic'>Price</p> 
                     <p className='font-bold text-2xl italic'>Quantity</p> 
-                </div>
+                </div> */}
                 {cart.map((item) => (
                     <>
                     <div key={item.id} className='grid grid-cols-4 place-content-evenly place-items-center'>
                         <img
                             src={item.image}
                             alt={item.title}
-                            className='w-14 h-14 object-contain block rounded-md mb-4'
+                            className='w-14 h-14 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-44 lg:h-44 object-contain block rounded-md mb-4'
                         />
                         <p className='text-left'>{item.title}</p>
-                        <p className=''>${(item.price).toFixed(2)}</p>
-                        <div className='flex flex-col-reverse justify-center items-center'>
+                        <p className=''>${item.price ? item.price.toFixed(2) : 0.00}</p>
+                        <div className='flex flex-col-reverse justify-center items-center sm:flex-row sm:space-x-3'>
                             <button onClick={() => decreaseQuantity(item.id)} className='flex justify-center items-center border border-gray-400 text-gray-400 px-4 rounded-md w-8 h-8'>-</button>
                             <p>{item.quantity}</p>
                             <button onClick={() => increaseQuantity(item.id)} className='flex justify-center items-center border border-gray-400 text-gray-400 px-4 rounded-md w-8 h-8'>+</button>
