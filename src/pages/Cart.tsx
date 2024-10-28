@@ -29,10 +29,15 @@ export const Cart = () => {
                 </div>
                 {cart.map((item) => (
                     <>
-                    <div key={item.id} className='grid grid-cols-3 text-center'>
+                    <div key={item.id} className='grid grid-cols-4 place-content-evenly place-items-center'>
+                        <img
+                            src={item.image}
+                            alt={item.title}
+                            className='w-14 h-14 object-contain block rounded-md mb-4'
+                        />
                         <p className='text-left'>{item.title}</p>
                         <p className=''>${(item.price).toFixed(2)}</p>
-                        <div className='flex justify-center items-center space-x-3'>
+                        <div className='flex flex-col-reverse justify-center items-center'>
                             <button onClick={() => decreaseQuantity(item.id)} className='flex justify-center items-center border border-gray-400 text-gray-400 px-4 rounded-md w-8 h-8'>-</button>
                             <p>{item.quantity}</p>
                             <button onClick={() => increaseQuantity(item.id)} className='flex justify-center items-center border border-gray-400 text-gray-400 px-4 rounded-md w-8 h-8'>+</button>
@@ -48,7 +53,7 @@ export const Cart = () => {
                 <span>${calTotal()}</span>
             </div>
 
-            <div className='flex gap-x-10'>
+            <div className='flex gap-x-10 text-center'>
                 <NavLink to={'/address'} className="px-2 py-2 border border-gray-400 text-black font-normal rounded-md">Proceed to Address</NavLink>
                 <NavLink to={'/dashboard'} className="px-2 py-2 border border-gray-400 text-black font-normal rounded-md">Back to shopping</NavLink>
             </div>
