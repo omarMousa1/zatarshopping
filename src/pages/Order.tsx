@@ -80,7 +80,7 @@ export const Order = () => {
                     {address ? (
                         <div>
                             <h1 className='font-bold'>Delivery Address</h1>
-                            <p>Name: {address.firstName} {address.lastName}</p>
+                            <p>{address.firstName} {address.lastName}</p>
                             <p>{address.country} - {address.city}</p>
                             <p>{address.streetAddress} - {address.area}</p>
                             <p>{address.postalCode}</p>
