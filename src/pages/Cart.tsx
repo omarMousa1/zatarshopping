@@ -63,7 +63,7 @@ export const Cart = () => {
 
             <div className='flex flex-col gap-x-10 gap-y-2 sm:flex-row sm:items-center sm:justify-center text-center w-full'>
                 <NavLink to={'/address'} className={`px-2 py-2 border border-gray-400 text-black font-normal rounded-md ${isEmpty ? 'opacity-50 cursor-not-allowed' : 'text-black'}`}>Proceed to Address</NavLink>
-                <NavLink to={'/dashboard'} className="px-2 py-2 border border-gray-400 text-black font-normal rounded-md">Back to shopping</NavLink>
+                <NavLink to={'/dashboard'} className="px-2 py-2 border border-gray-400 text-black font-normal rounded-md">Continue Shopping</NavLink>
             </div>
         </div>
     </div>
