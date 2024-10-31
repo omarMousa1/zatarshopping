@@ -54,7 +54,9 @@ export const Cart = () => {
                 </div>
             )}
             
-            {isEmpty && (
+            {isEmpty ? (
+                <></>
+            ) : (
                 <div className='flex justify-center items-center gap-x-5 my-6 p-2 rounded-lg shadow-lg text-xl font-semibold border border-gray-500 w-max'>
                     <span>Total:</span>
                     <span>${calTotal()}</span>
