@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLogout } from '../hooks/useLogout';
 import { NavLink, Outlet } from 'react-router-dom';
+import { Footer } from '../components/Footer';
 // import nature from '../assets/bgs/bg-home2.jpg'
 
 interface RootLayoutProps {
@@ -46,6 +47,7 @@ export const RootLayout: React.FC<RootLayoutProps> = ({ user }) => {
         <main>
             <Outlet />
         </main>
+        <Footer />
     </body>
   )
 }
