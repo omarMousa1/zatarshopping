@@ -22,7 +22,7 @@ export const SkeletonCard = ({ cards }: SkeletonProps) => {
   return (
     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
       {Array(cards).fill(0).map((_, i) => (
-      <div key={i} className='shadow-lg p-2'>
+      <div key={i} className='shadow-md p-2'>
         <div className='mx-8'>
           <Skeleton height={100} />
         </div>

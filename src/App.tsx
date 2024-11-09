@@ -28,7 +28,7 @@ function App() {
   }, [user])
 
   return (
-    <SkeletonTheme baseColor="#313131" highlightColor="#525252">
+    <SkeletonTheme baseColor="#A9A9A9" highlightColor="#dddddd">
       <Router>
         <Routes>
           <Route path="/" element={<RootLayout user={user} />}>
