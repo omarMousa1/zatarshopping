@@ -17,7 +17,7 @@ export const RootLayout: React.FC<RootLayoutProps> = ({ user }) => {
     }
 
   return (
-    <body>
+    <>
         <header className='bg-[#3A5B22] p-3'>
             <nav className='flex justify-between items-center'>
                 <NavLink to={"/"} className='text-2xl text-white'>Zatar</NavLink>
@@ -48,6 +48,6 @@ export const RootLayout: React.FC<RootLayoutProps> = ({ user }) => {
             <Outlet />
         </main>
         <Footer />
-    </body>
+    </>
   )
 }
