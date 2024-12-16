@@ -17,15 +17,11 @@ function App() {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      console.log("User state changed:", user);
       setUser(user);
     });
 
-    return () => {
-      console.log("Cleaning up listener");
-      unsubscribe();
-    }
-  }, [user])
+    return () => unsubscribe();
+  }, [])
 
   return (
     <SkeletonTheme baseColor="#A9A9A9" highlightColor="#dddddd">
@@ -35,10 +31,10 @@ function App() {
           <Route index element={<Home user={user} />} />
           <Route path="/register" element={user ? <Navigate to="/dashboard" /> : <Register />} />
           <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
-          <Route path="/dashboard" element={user ? <Dashboard /> : <Home user={user} />} />
-          <Route path="/cart" element={user ? <Cart /> : <Home user={user} />} />
-          <Route path="/address" element={user ? <Address /> : <Home user={user} />} />
-          <Route path="/order" element={user ? <Order /> : <Home user={user} />} />
+          <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/login" />} />
+          <Route path="/cart" element={user ? <Cart /> : <Navigate to="/login" />} />
+          <Route path="/address" element={user ? <Address /> : <Navigate to="/login" />} />
+          <Route path="/order" element={user ? <Order /> : <Navigate to="/login" />} />
           </Route>
         </Routes>
       </Router>

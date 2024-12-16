@@ -9,6 +9,7 @@ import {
 } from "firebase/firestore";
 import { create } from "zustand";
 import { db } from "../firebase/firebaseConfig";
+import { Product } from "../types/product";
 
 type CartItem = {
   id: number;
@@ -34,6 +35,9 @@ type AddressInputs = {
 type VariableState = {
   cart: CartItem[];
   address: null | AddressInputs;
+  loading: boolean;
+  error: string | null;
+  products: Product[];
   loadCart: () => void;
   addToCart: (item: CartItem) => void;
   saveCart: () => void;
@@ -42,10 +46,29 @@ type VariableState = {
 
   saveAddress: (address: AddressInputs) => void;
   loadAddress: () => void;
+
+  fetchProducts: () => Promise<void>;
 };
 
 export const store = create<VariableState>((set, get) => ({
   cart: [],
+  products: [],
+  error: null,
+  loading: false,
+
+  fetchProducts: async () => {
+    set({ loading: true, error: null });
+    try {
+      const response = await fetch("https://fakestoreapi.com/products");
+      if (!response.ok) throw new Error("Failed to fetch products");
+      const data: Product[] = await response.json();
+      set({ products: data });
+    } catch (err: any) {
+      set({ error: err.message });
+    } finally {
+      set({ loading: false });
+    }
+  },
 
   loadCart: async () => {
     const auth = getAuth();
