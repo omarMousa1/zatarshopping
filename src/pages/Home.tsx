@@ -53,20 +53,22 @@ export const Home: React.FC<RootLayoutProps> = ({ user }) => {
           </p>
           <button className="bg-indigo-600 text-white">Learn More</button>
         </div>
-        <div className="text-center bg-indigo-50 p-6 rounded-lg mb-8">
+        {user ? (
+          <></>
+        ) : <div className="text-center bg-indigo-50 p-6 rounded-lg mb-8">
         <h2 className="text-2xl font-bold mb-4 text-indigo-600">Join Our Community</h2>
         <p className="text-gray-600 mb-4">
           Become a part of the ZatarShopping family by registering for an account.
         </p>
         <div className='flex justify-center'>
-        <Link to="/register">
-          <button className="bg-indigo-600 text-white mr-4">Register</button>
-        </Link>
-        <Link to="/login">
-          <button className="bg-indigo-600 text-white">Login</button>
-        </Link>
+          <Link to="/register">
+            <button className="bg-indigo-600 text-white mr-4">Register</button>
+          </Link>
+          <Link to="/login">
+            <button className="bg-indigo-600 text-white">Login</button>
+          </Link>
         </div>
-      </div>
+      </div>}
       </div>
     </div>
   )
