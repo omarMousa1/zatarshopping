@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom';
+import { HomeButtons } from '../components/buttons/HomeButtons';
 
 interface RootLayoutProps {
   user: any;
@@ -25,7 +26,7 @@ export const Home: React.FC<RootLayoutProps> = ({ user }) => {
             Browse our latest collections across various categories, handpicked to match your style and needs.
           </p>
           <NavLink to={"/dashboard"}>
-          <button className="bg-indigo-600 text-white" onClick={() => {}}>Shop Now</button>
+          <HomeButtons label='Shop Now' onClick={() => {}} />
           </NavLink>
           {/* {user ? (
            <NavLink to={"/login"}>
@@ -43,7 +44,7 @@ export const Home: React.FC<RootLayoutProps> = ({ user }) => {
           <p className="text-gray-600 mb-4">
             Don’t miss out on our ongoing promotions! Enjoy incredible discounts and special offers.
           </p>
-          <button className="bg-indigo-600 text-white">View Deals</button>
+          <HomeButtons label='View Deals' onClick={() => {}} />
         </div>
 
         <div className="p-6 bg-white shadow-lg rounded-lg text-center">
@@ -51,8 +52,9 @@ export const Home: React.FC<RootLayoutProps> = ({ user }) => {
           <p className="text-gray-600 mb-4">
             We’ve streamlined the checkout process to ensure secure payments and fast delivery options.
           </p>
-          <button className="bg-indigo-600 text-white">Learn More</button>
+          <HomeButtons label='Learn More' onClick={() => {}} />
         </div>
+
         {user ? (
           <></>
         ) : <div className="text-center bg-indigo-50 p-6 rounded-lg mb-8">
