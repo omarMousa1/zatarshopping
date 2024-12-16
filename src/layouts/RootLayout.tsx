@@ -2,6 +2,7 @@ import React from 'react'
 import { useLogout } from '../hooks/useLogout';
 import { NavLink, Outlet } from 'react-router-dom';
 import { Footer } from '../components/Footer';
+import zatarLogo from '../assets/logo/zatarLogo.png';
 // import nature from '../assets/bgs/bg-home2.jpg'
 
 interface RootLayoutProps {
@@ -20,7 +21,7 @@ export const RootLayout: React.FC<RootLayoutProps> = ({ user }) => {
     <>
         <header className='bg-[#3A5B22] p-3'>
             <nav className='flex justify-between items-center'>
-                <NavLink to={"/"} className='text-2xl text-white'>Zatar</NavLink>
+                <NavLink to={"/"} className='text-2xl text-white'><img src={zatarLogo} alt='logo zatart' ></img></NavLink>
                 <div>
                     {user ? (
                         <h3 className='text-white'> Hi, {user.email}</h3>
