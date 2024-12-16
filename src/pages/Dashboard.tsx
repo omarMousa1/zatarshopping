@@ -1,15 +1,18 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { store } from "../hooks/store";
 import { SkeletonCard } from "../components/skeletons-loading/Skeletons";
 import { useAuthRedirect } from "../hooks/useAuthRedirect";
 import { Product } from "../types/product";
+import { ItemAdded } from "../components/ItemAdded";
 
 export const Dashboard = () => {
   const { products, loading, error, fetchProducts } = store();
   const addToCart = store((state) => state.addToCart);
   const loadCart = store((state) => state.loadCart);
 
-  useAuthRedirect();  // Ensure the user is redirected if not authenticated
+  const [showNotification, setShowNotification] = useState(false);
+
+  useAuthRedirect();
 
   useEffect(() => {
     if (products.length === 0) {
@@ -29,10 +32,17 @@ export const Dashboard = () => {
       category: product.category,
       image: product.image,
     });
+    
+    setShowNotification(true);
+    
+    setTimeout(() => {
+      setShowNotification(false)
+    }, 2000);
   };
-
+    
   return (
     <div className="w-full bg-slate-100 rounded-md p-5">
+      {showNotification && <ItemAdded isVisible />}
       <h1 className="text-3xl">Welcome to your dashboard</h1>
       <p className="text-gray-600 text-left mt-4">
         This is your personal dashboard where you can browse through our exclusive selection of products. 
@@ -69,6 +79,7 @@ export const Dashboard = () => {
                 >
                   Add to Cart
                 </button>
+                
               </div>
             ))}
           </div>
