@@ -11,14 +11,21 @@ interface RootLayoutProps {
 export const Home: React.FC<RootLayoutProps> = ({ user }) => {
   return (
     <div className='bg-slate-100 rounded-md p-5'>
-      <h1 className="text-4xl font-extrabold text-gray-800 mb-8">
-        Welcome to <span className="text-green-800">ZatarShopping</span>
-      </h1>
-      <p className="text-xl text-gray-600 mb-8 max-w-lg">
-        Your One-Stop Online Shop for Everything! Explore our wide range of
-        products, from the latest fashion trends to cutting-edge tech gadgets, all
-        available at competitive prices.
-      </p>
+      <div className='flex justify-evenly items-center'>
+        <div>
+          <h1 className="text-4xl font-extrabold text-gray-800 mb-8">
+            Welcome to <span className="text-green-800">ZatarShopping</span>
+          </h1>
+          <p className="text-xl text-gray-600 mb-8 max-w-lg">
+            Your One-Stop Online Shop for Everything! Explore our wide range of
+            products, from the latest fashion trends to cutting-edge tech gadgets, all
+            available at competitive prices.
+          </p>
+        </div>
+        <div>
+          <p>here image</p>
+        </div>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         <div className="p-6 bg-white shadow-lg rounded-lg text-center">
           <h2 className="text-2xl font-bold mb-4 text-gray-800">Discover New Arrivals</h2>
