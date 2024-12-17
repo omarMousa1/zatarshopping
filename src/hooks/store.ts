@@ -187,7 +187,7 @@ export const store = create<VariableState>((set, get) => ({
     if (user) {
       const addressRef = doc(
         db,
-        `users/${user.uid}/addressess`,
+        `users/${user.uid}/addresses`,
         "defaultAddress"
       );
       await setDoc(addressRef, { ...address, userId: user.uid });
