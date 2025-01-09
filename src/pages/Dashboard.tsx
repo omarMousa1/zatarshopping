@@ -16,9 +16,9 @@ export const Dashboard = () => {
 
   useEffect(() => {
     if (products.length === 0) {
-      fetchProducts(); // Fetch products if not already loaded
+      fetchProducts(); 
     } else {
-      loadCart();  // Load cart if products are available
+      loadCart();  
     }
   }, [fetchProducts, loadCart, products.length]);
 

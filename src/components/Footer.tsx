@@ -10,7 +10,8 @@ export const Footer = () => {
             <div>
                 <h4 className="text-lg font-semibold mb-3">About Us</h4>
                 <p className="text-sm">
-                    text
+                ZatarShopping is an online shopping platform that offers the best products and guarantees their quality. 
+                It also seeks to satisfy its customers by making its services easy and receiving their suggestions.
                 </p>
             </div>
 
@@ -56,7 +57,7 @@ export const Footer = () => {
                 className="p-2 rounded text-black"
                 aria-label="Email address"
                 />
-                <button type="submit" className="bg-orange-500 hover:bg-orange-600 text-white rounded p-2">
+                <button type="submit" disabled className="bg-orange-500 hover:bg-orange-600 text-white rounded p-2">
                 Subscribe
                 </button>
             </form>

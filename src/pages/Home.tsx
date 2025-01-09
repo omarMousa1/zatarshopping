@@ -15,7 +15,7 @@ interface RootLayoutProps {
 export const Home: React.FC<RootLayoutProps> = ({ user }) => {
   return (
     <div className='bg-slate-100 rounded-md p-5'>
-      <div className='flex justify-evenly items-center flex-col mb-5'>
+      <div className='flex justify-evenly items-center flex-col sm:flex-row mb-5'>
         <div>
           <h1 className="text-4xl font-extrabold text-gray-800 mb-8">
             Welcome to <span className="text-green-800">ZatarShopping</span>
@@ -27,7 +27,7 @@ export const Home: React.FC<RootLayoutProps> = ({ user }) => {
           </p>
         </div>
         <div>
-          <img src={imageCloths} alt='cloths in cart' className='rounded-lg' />
+          <img src={imageCloths} alt='cloths in cart' className='rounded-lg w-80 h-80' />
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
@@ -75,10 +75,10 @@ export const Home: React.FC<RootLayoutProps> = ({ user }) => {
         </p>
         <div className='flex justify-center'>
           <Link to="/register">
-            <button className="bg-indigo-600 text-white mr-4">Register</button>
+            <button className="border-2 border-white bg-indigo-600 hover:bg-indigo-900 duration-300 text-white py-1 px-3 rounded-md mr-4">Register</button>
           </Link>
           <Link to="/login">
-            <button className="bg-indigo-600 text-white">Login</button>
+            <button className="border-2 border-white bg-indigo-600 hover:bg-indigo-900 duration-300 text-white py-1 px-3 rounded-md">Login</button>
           </Link>
         </div>
       </div>}
